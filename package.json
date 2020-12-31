@@ -3,9 +3,32 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js"
   },
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "author": "sebastian-aldana",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sebastian-aldana/identico-2-/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sebastian-aldana/licimatic-tecnical-test.git"
+  },
+  "description": "",
+  "dependencies": {
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "next": "^10.0.4",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
+    "redux-actions": "^2.6.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0"
+  }
 }

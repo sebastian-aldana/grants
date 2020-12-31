@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "es6",
+    "target": "es6",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "paths": {
+      "_atoms_/*": ["./src/components/atoms/*"],
+      "_molecules_/*": ["./src/components/molecules/*"],
+      "_organisms_/*": ["./src/components/organisms/*"],
+      "_icons_/*": ["./src/components/icons/*"],
+      "_providers_/*": ["./src/components/providers/*"],
+      "_store_": ["./src/store"],
+      "_reducers_": ["./src/store/reducers"],
+      "_reducers_/*": ["./src/store/reducers/*"],
+      "_templates_/*": ["./src/components/templates/*"]
+    }
+  }
+}
