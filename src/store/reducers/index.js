@@ -1,4 +1,4 @@
-import user from "_reducers_/user/user.reducer";
+import grants from "_reducers_/grants/grants.reducer";
 import { combineReducers } from "redux";
 
-export default combineReducers({ user });
+export default combineReducers({ grants });

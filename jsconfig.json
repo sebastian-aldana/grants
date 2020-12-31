@@ -14,7 +14,8 @@
       "_store_": ["./src/store"],
       "_reducers_": ["./src/store/reducers"],
       "_reducers_/*": ["./src/store/reducers/*"],
-      "_templates_/*": ["./src/components/templates/*"]
+      "_templates_/*": ["./src/components/templates/*"],
+      "_utils_/*": ["./src/utils/*"]
     }
   }
 }
