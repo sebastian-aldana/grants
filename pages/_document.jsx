@@ -1,14 +1,16 @@
 import React from "react";
-import Document, { Head, Main, NextScript } from "next/document";
+import Document, { Head, Main, NextScript, Html } from "next/document";
 import { ServerStyleSheets } from "@material-ui/core/styles";
 
 class AppDocument extends Document {
   render() {
     return (
-      <html lang="en">
+      <Html lang="en">
         <Head>
           <meta name="theme-color" content="#00d2ff" />
           <link rel="manifest" href="/manifest.json" />
+          <link rel="apple-touch-icon" href="/static/apple-touch-icon.png" />
+          <link rel="shortcut icon" href="/favicon.ico" />
         </Head>
         <body>
           <Main />
@@ -18,7 +20,7 @@ class AppDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </body>
-      </html>
+      </Html>
     );
   }
 }
