@@ -9,7 +9,12 @@ export const asyncGetGrants = () => async (dispatch) => {
       grants: { params },
     } = store.getState();
     const { data } = await axios.post(apiPrefix, params);
-    dispatch(GrantsAction.setGrantsData(data.oppHits));
+    dispatch(
+      GrantsAction.setGrantsData({
+        oppHits: data.oppHits,
+        hitCount: data.hitCount,
+      })
+    );
   } catch (error) {
     console.log(error);
   }

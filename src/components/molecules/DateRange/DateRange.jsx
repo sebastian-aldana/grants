@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Autocomplete } from "@material-ui/lab";
 import { useDispatch } from "react-redux";
 import {
@@ -24,10 +24,24 @@ const DateRange = () => {
     { label: "Posted Date - Last 8 week ", value: "56" },
   ];
 
+  const [dateRange, SetDateRange] = useState({
+    label: "All avalaible",
+    value: "",
+  });
+
   const styles = useStyles();
 
   const handleDateRange = (event, newValue) => {
-    dispatch(setParams({ dateRange: newValue.value }));
+    if (!newValue) {
+      dispatch(setParams({ dateRange: "" }));
+      SetDateRange({
+        label: "All avalaible",
+        value: "",
+      });
+    } else {
+      dispatch(setParams({ dateRange: newValue.value }));
+      SetDateRange(newValue);
+    }
   };
 
   const getGrants = () => {
@@ -41,6 +55,7 @@ const DateRange = () => {
         options={options}
         className={styles.autoCompleteContainer}
         onChange={handleDateRange}
+        value={dateRange}
         getOptionLabel={(option) => option.label}
         renderInput={(params) => (
           <TextField {...params} size="small" variant="outlined" />

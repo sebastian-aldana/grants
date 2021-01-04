@@ -2,8 +2,9 @@ import { handleAction } from "redux-actions";
 import { Actions } from "./grants.actions";
 
 const initialState = {
-  listOfGrants: [],
+  listOfGrants: {},
   grants: {},
+  hitCount: "",
   params: {
     cfda: "",
     keyword: "",
@@ -17,7 +18,14 @@ const initialState = {
 const setGrantsDAta = handleAction(
   Actions.setGrantsData,
   (state, { payload }) => {
-    return { ...state, listOfGrants: [...payload] };
+    const index = state.params.startRecordNum / 25;
+    return {
+      ...state,
+      listOfGrants: {
+        [index]: payload.oppHits,
+      },
+      hitCount: payload.hitCount,
+    };
   },
   initialState
 );

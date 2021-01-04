@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Autocomplete } from "@material-ui/lab";
 import { Box, TextField, Button } from "@material-ui/core";
@@ -26,8 +26,22 @@ const SortGrants = () => {
     { label: "Close Date (Descending)", value: "closeDate|desc" },
   ];
 
+  const [sortGrants, setSortGrants] = useState({
+    label: "Posted Date (Ascending)",
+    value: "openDate|asc",
+  });
+
   const handleSortType = (_event, newValue) => {
-    dispatch(setParams({ sortBy: newValue.value }));
+    if (!newValue) {
+      dispatch(setParams({ sortBy: newValue.value }));
+      setSortGrants({
+        label: "Posted Date (Ascending)",
+        value: "openDate|asc",
+      });
+    } else {
+      dispatch(setParams({ sortBy: newValue.value }));
+      setSortGrants(newValue);
+    }
   };
 
   const getGrants = () => {
@@ -37,8 +51,10 @@ const SortGrants = () => {
   return (
     <Box className={styles.container}>
       <Autocomplete
-        id="date-range"
+        id="sort-grants"
         options={options}
+        value={sortGrants}
+        defaultValue="Oportunity Number (Ascending)"
         className={styles.autoCompleteContainer}
         onChange={handleSortType}
         getOptionLabel={(option) => option.label}
